@@ -1,0 +1,29 @@
+<div fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+
+    <form class="searchbar">
+        <div class="search" fxFlex="35%">
+        <mat-form-field >
+          <input placeholder="Choose Location" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+     
+
+      <div class="search" fxFlex="35%">
+      <mat-form-field >
+          <input type="number" placeholder="No. of Guest" matInput [formControl]="myControl" >
+          <mat-icon matSuffix>add</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="searchbtn" fxFlex="35%">
+          <button mat-raised-button color="primary">Search</button>
+      </div>
+      </form>
+    
+ </div>
