@@ -1,39 +1,33 @@
-import { LandingComponent } from './landing/landing/landing.component';
 import { Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
-import { ItemComponent } from './landing/item/item.component';
-import { ItemListComponent } from './landing/item-list/item-list.component';
-export const routes: Routes = [
-    {
-      path: 'landing',
-      pathMatch: 'full',
-      component: LandingComponent
-    },
-    {
-        path: 'login',
-        pathMatch: 'full',
-        component: LoginComponent
-      },
-     
-      {
-        path: 'register',
-        pathMatch: 'full',
-        component: RegistrationComponent
-      },
-      {
-        path: 'item-list',
-        pathMatch: 'full',
-        component: ItemListComponent
-      },
-      {
-        path: 'item',
-        pathMatch: 'full',
-        component: ItemComponent
-      },
-      {
-        path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-      }
-  ];
+import { HomeComponent } from './home/home.component';
+import { ViewProductComponent } from './view-product/view-product.component';
+import { FilterComponent } from './filter/filter.component';
+
+export const routes: Routes = [{
+  path: 'home',
+  pathMatch: 'full',
+  component: HomeComponent
+},
+{
+  path: 'login',
+  pathMatch: 'full',
+  component: LoginComponent
+},
+{
+  path: 'register',
+  pathMatch: 'full',
+  component: RegistrationComponent
+},
+{
+  path: 'viewproducts',
+  pathMatch: 'full',
+  component: ViewProductComponent
+},
+{
+  path: 'filter',
+  pathMatch: 'full',
+  component: FilterComponent
+},
+];

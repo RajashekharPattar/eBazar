@@ -1,20 +1,22 @@
 .backgrd{
-    background-image: url('/../ebazar/src/assets/images/loginBackground.jpg');
-    padding:50px;
+    height:600px;
+    background: url('../../../assets/images/loginBackground-1.jpg');
+    background-size: cover;
+    background-position: center;
 }
 .example-card{
     width: 25%;
     position: absolute;
     left: 800px; 
     margin-top: 80px;
+    opacity: 0.9;
 }
 .example-full-width{
    margin-left: 20px;
    width: 200px;
 }
 .loginbtn{
-    text-align: center;
-   
+    text-align: center;  
 }
 .forgotlink{
     text-decoration: none;
@@ -30,6 +32,7 @@
 .signuptxt{
     text-decoration: none;
     color: orange;
+    cursor: pointer;
 }
 .txtright{
      float:right;

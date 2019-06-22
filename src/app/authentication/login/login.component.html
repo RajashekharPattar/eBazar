@@ -1,29 +1,27 @@
 <div class="backgrd">
+
   <mat-card class="example-card">
   <mat-card-header>
       <span class="txtleft"><mat-card-title><h3>Login</h3></mat-card-title></span>
-    <span class="txtright"><mat-card-title >New User?<a class="signuptxt" href="#">Sign Up</a></mat-card-title></span>
+    <span class="txtright"><mat-card-title >New User?<a class="signuptxt" routerLink="/register"> Sign Up</a></mat-card-title></span>
     <div class="clear"></div>
   </mat-card-header>
   <mat-card-content>
-    <form class="example-form">
+    <form class="example-form" [formGroup] ="loginGroup" >
       <table  cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+            <input matInput placeholder="Username" formControlName="username"  required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
         <td><mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+          <input matInput placeholder="Password" formControlName="password" type="password" required>
         </mat-form-field></td>
       </tr>
-      <tr>
-          <td><span class="chkbx"><input  type="checkbox">Remember Me</span></td>
-         <td> <a class="forgotlink" href="#">Forgot Password</a></td>
-      </tr>
+     
     </table>
     </form>
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
@@ -34,3 +32,4 @@
   </mat-card-actions>
 </mat-card>
 </div>
+<!-- <a routerLink="reasdasd">asdasd</a> -->

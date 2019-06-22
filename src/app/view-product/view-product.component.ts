@@ -16,9 +16,15 @@ export class ViewProductComponent implements OnInit {
     this.getproductlist();
   }
   getproductlist(): void {
-    this.productService.establishSubject.subscribe((p:product[]) => this.products = p)
+    this.productService.productSubject.subscribe((p: product[]) => this.products = p);
     this.productService.getproductlist();
   }
 
-  
+  addcart(value) {
+   // console.log(value);
+    this.productService.addcart(value);
+  }
+  removeItem(data) {
+    this.productService.removeItem(data);
+  }
 }

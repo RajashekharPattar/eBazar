@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { CustomMaterialModule } from '../material.module';
 import { FormsModule} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CustomMaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   declarations: [
     RegistrationComponent,
