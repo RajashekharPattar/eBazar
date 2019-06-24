@@ -10,8 +10,9 @@
       <span class="productdetail"><mat-icon class="star">star</mat-icon> {{c.key.rating}}</span>
       <br><br>
        <p>Price:{{c.key.price}}</p>
-        Qty<input  type="number"  (click)="total(c.key,$event)" placeholder="">
-       <!-- Qty<input  type="number" formControlname="min" (Input)="total($event,c)" placeholder="1">  -->
+        <!-- Qty<input  type="text"  (click)="total(c.key,$event)" placeholder=""> -->
+      <mat-icon (click)="total(c.key,'false')" class="countBtn">remove_circle</mat-icon>{{qty}}<mat-icon class="countBtn" (click)="total(c.key,'true')" >add_circle</mat-icon>
+
       <button class="btn" mat-flat-button color="warn" (click)="removeitem(c.key)">Remove</button>
     </div>
     <div class="clear"></div>
@@ -29,7 +30,7 @@
 <div *ngIf="qtyCartMapping.size === 0">
       <mat-card class="emptycart">
             <mat-card-title>Sorry... Your Cart Is Empty</mat-card-title>
-            <button mat-raised-button color="primary" routerLink="/home">Home</button>
+            <button mat-raised-button color="primary" routerLink="/home"><mat-icon>home</mat-icon>Home</button>
 
       </mat-card>
 

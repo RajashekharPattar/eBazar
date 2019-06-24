@@ -21,7 +21,7 @@ export class FilterComponent implements OnInit {
 
   CategoryGroup = new FormGroup({
     categorySearch: new FormControl(''),
-    minValue: new FormControl(100),
+    minValue: new FormControl(5000),
     maxValue: new FormControl(10000),
     checkbox1: new FormControl(false),
     checkbox2: new FormControl(false),
@@ -31,7 +31,7 @@ export class FilterComponent implements OnInit {
 
   changes(): void {
     this.CategoryGroup.valueChanges.subscribe(cat => {
-      //console.log('values sent from component' + cat);
+     // console.log( cat.minValue);
       
       this.productService.categoryChanges(cat);
     });

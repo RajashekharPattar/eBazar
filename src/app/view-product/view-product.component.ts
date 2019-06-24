@@ -27,4 +27,9 @@ export class ViewProductComponent implements OnInit {
   removeItem(data) {
     this.productService.removeItem(data);
   }
+  viewProduct(data){
+    //console.log("data");
+    //console.log(data);
+    this.productService.setviewProduct(data);
+  }
 }

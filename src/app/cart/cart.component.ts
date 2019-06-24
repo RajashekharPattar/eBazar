@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
   totalprice = 0;
   priceCal: FormGroup;
    qtyCartMapping = new Map();
+   qty= 1;
 
   constructor(private productService: ProductlistService,private router: Router) { }
 
@@ -44,11 +45,19 @@ export class CartComponent implements OnInit {
    
     this.totalprice = this.pricetotal();
   }
-  total( data:object, c:any) {
-    let qty= c.target.value;
-    this.productService.calTotal(qty, data);
-    this.totalprice = this.pricetotal()
-    //console.log("qty"+qty);
+  total( data:object, c) {
+    console.log("qty call "+c);
+   
+    if(c === 'true'){this.qty++}
+    if(c === 'false'){this.qty--}
+    if(this.qty > 0){
+     this.productService.calTotal(this.qty, data);
+     this.totalprice = this.pricetotal()
+    }else{
+     alert('Minimum Quantity Must be 1');
+     this.qty=1;
+    }
+   // console.log("qty "+this.qty);
   }
   checkout(){
     let order = this.productService.getCart();

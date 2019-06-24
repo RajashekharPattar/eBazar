@@ -15,7 +15,7 @@
         </div>
   </div>
 
-  <div fxFlex>
+  <div fxFlex >
       <form [formGroup]="searchForm" class="searchbar" (ngSubmit)="searchItem()">
          
           <mat-form-field>
@@ -48,7 +48,7 @@
           </mat-menu> 
       </div>
       <div *ngIf="!isLoggedIn" >
-        <button class="searchbtn" mat-flat-button color="primary" routerLink="/login">Login</button>
+        <button class="searchbtn" mat-flat-button color="primary" routerLink="/login">Login/Signup </button>
       </div>
   </div>
 </div>

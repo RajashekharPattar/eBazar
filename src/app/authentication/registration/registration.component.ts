@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class RegistrationComponent implements OnInit {
 //   password:new FormControl(''),
 //   email:new FormControl(''),
 // });
-constructor(private fb: FormBuilder, private authenticationService : AuthenticationService) { }
+constructor(private router: Router,private fb: FormBuilder, private authenticationService : AuthenticationService) { }
 
   ngOnInit( ) {
   }
@@ -54,5 +55,7 @@ constructor(private fb: FormBuilder, private authenticationService : Authenticat
   register(){
    //console.log(this.RegistrationForm.value);
    this.authenticationService.register(this.RegistrationForm.value);
+   alert('Thanks For Signing Up With Us...!');
+   this.router.navigate(['/home']);
   }
 }

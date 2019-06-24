@@ -13,6 +13,7 @@ export class ProductlistService {
   productcartSubject = new Subject<Map<product,number>>();
   myordersSubject = new Subject<order[] >();
   // filterData: product[];
+   productToView: product
   orders : order[]=[];
   qtyCartMapping = new Map();
 
@@ -23,13 +24,13 @@ export class ProductlistService {
 
   SearchedProductList(SearchValue) {
     let filteredData = [];
-    filteredData = productlist.filter(data => data.name === SearchValue);
+    filteredData = productlist.filter(data => data.name.toLowerCase( ) === SearchValue.toLowerCase( ));
     this.productSubject.next(filteredData);
   }
 
   categoryChanges(value) {
     let tempList = [];
-    tempList = productlist.filter(p => p.price >= value.minValue);
+    tempList = productlist.filter(p => p.price <= value.minValue);
     
     if(value.checkbox1 == false && value.checkbox2 == false && value.checkbox3 == false && value.checkbox4 == false ){
       tempList = tempList;
@@ -77,6 +78,7 @@ export class ProductlistService {
 
   calTotal(qty: number, data: object){
     this.qtyCartMapping.set(data,qty);
+    //console.log("calTotal");
     this.productcartSubject.next(this.qtyCartMapping);    
   }
   checkout(data ){
@@ -85,13 +87,20 @@ export class ProductlistService {
     // let curentDate = new Date();
     // // dateFormat(curentDate, "dddd, mmmm dS, yyyy, h:MM:ss TT"); // output will be like Thursday, May 10th, 2018, 7:11:21 AM
     // let date = dateFormat(curentDate, "dd, mm, yyyy, h:MM:ss TT");
-    console.log(data)
-    let curentDate = new Date();
+      let curentDate = new Date();
       this.orders.push( new order(curentDate,data));
+     
     //this.orders.push(data);
   }
   getmyorders(){
     //console.log(this.orders);
     return this.orders
   }
+  setviewProduct(data){  
+    this.productToView = data;
+  }
+  getProductToView(){
+    return this.productToView;
+  }
+
 }
